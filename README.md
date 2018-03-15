@@ -45,6 +45,27 @@ export PATH=$PATH:/path/to/quantlib/
 path to quantlib install is required because configure looks for quantlib config.
 ./configure
 make -C Python
+make -C Python install 
+
+This will install python packages into the default python location, ( it could be the anaconda directory id anaconda is setup), example directory.
+/home/foo/anaconda2/lib/python2.7/site-packages/QuantLib_Python-1.12-py2.7-linux-x86_64.egg
+
+export PYTHONPATH=$PYTHONPATH:/home/foo/anaconda2/lib/python2.7/site-packages/QuantLib_Python-1.12-py2.7-linux-x86_64.egg/QuantLib
+
+make -C Python check
+if PYTHONPATH is not set, running the above command will fail with a message,
+ImportError: No module named _QuantLib
+
+if the command make -C Python check fails with a message,
+ImportError: /home/sanurhea/anaconda2/bin/../lib/libstdc++.so.6: version `GLIBCXX_3.4.21' not found
+ 
+ install package libgcc
+ conda install libgcc
+ 
+ 
+
+
+
 
  
 
